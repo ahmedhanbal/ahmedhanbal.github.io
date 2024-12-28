@@ -23,7 +23,7 @@ function showWord() {
     if (index < words.length) {
         animatedText.textContent += words[index] + ' ';
         index++;
-        setTimeout(showWord, 500);
+        setTimeout(showWord, 200);
     }
 }
 

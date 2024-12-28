@@ -87,6 +87,13 @@ main {
     margin-bottom: 10px;
 }
 
+.projname {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--header-text-color);
+    margin-bottom: 10px;
+}
+
 .animated-text h2 {
     font-size: 20px;
     margin-bottom: 30px;
