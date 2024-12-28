@@ -3,36 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Day 2 Portfolio Website"> 
-    <title>My Portfolio</title>
+    <meta name="description" content="Enhanced Portfolio Website"> 
+    <title>My Enhanced Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Portfolio - Under Construction</h1>
-    <img src="mypic.png" alt="Ahmed Ali Zahid.png">
-    <h2>Ahmed Ali Zahid</h2>
-    <h2>About Me</h2>
-    <p>Inspiring to become a full stack developer</p>
-    <h2>Education</h2>
-    <p>Undergraduate BSCS FAST NUCES,Islamabad</p>
-    <h2>Skills</h2>
-    <p>C/C++</p>
-    <p>Python</p>
-    <p>HTML</p>
-    <p>CSS</p>
-    <p>Javascript</p>
-    <h2>Projects</h2>
-    <h3>1. Tetris</h3>
-    <p>Class Tetris Game implemented in C++ and SFML</p>
-    <a target="_blank" href="https://github.com/ahmedhanbal/TetrisPF">Github Link</a>
-    <h3>2. Spaceshooter</h3>
-    <p>Retro SpaceInvader game implemented in C++ OOP and SFML</p>
-    <a target="_blank" href="https://github.com/ahmedhanbal/SpaceshooterOOP">Github Link</a>
-    <h3>3. Labrynth Exploer</h3>
-    <p>Using DSA conepts to make a Maze Escape Game</p>
-    <a target="_blank" href="https://github.com/ahmedhanbal/TetrisPF">Github Link</a>
-    <h3>4. Traffic Simulation</h3>
-    <p>Using OS conepts to simulate Traffic behavior at Intersection</p>
-    <a target="_blank" href="https://github.com/ahmedhanbal/TrafficSimulationOS">Github Link</a>
+    <header>
+        <span class="navbar-brand">Hanbal.</span>
+        <nav class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+        </nav>
+        <span id="themeStatus" class="theme-status"></span>
+    </header>
+    <main>
+        <div class="intro">
+            <img src="mypic.png" alt="Ahmed Ali Zahid" class="profile-image">
+            <h1 class="name">Ahmed Ali Zahid</h1>
+            <div class="animated-text">
+                <h2>I'm a C/C++ Developer pursuing full-stack development.</h2>
+            </div>
+        </div>
+        <div class="content">
+            <section id="about" class="hidden-section">
+                <h2>About Me</h2>
+                <p>Undergraduate BSCS FAST NUCES, Islamabad</p>
+            </section>
+            <section id="skills" class="hidden-section">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <a href="#" class="skill">C/C++</a>
+                    <a href="#" class="skill">Python</a>
+                    <a href="#" class="skill">HTML</a>
+                    <a href="#" class="skill">CSS</a>
+                    <a href="#" class="skill">JavaScript</a>
+                </div>
+            </section>
+            <section id="projects" class="hidden-section">
+                <h2>Projects</h2>
+                <h3>1. Tetris</h3>
+                <p>Class Tetris Game implemented in C++ and SFML</p>
+                <a target="_blank" href="https://github.com/ahmedhanbal/TetrisPF">Github Link</a>
+                <h3>2. Spaceshooter</h3>
+                <p>Retro SpaceInvader game implemented in C++ OOP and SFML</p>
+                <a target="_blank" href="https://github.com/ahmedhanbal/SpaceshooterOOP">Github Link</a>
+                <h3>3. Labrynth Explorer</h3>
+                <p>Using DSA concepts to make a Maze Escape Game</p>
+                <a target="_blank" href="https://github.com/ahmedhanbal/TetrisPF">Github Link</a>
+                <h3>4. Traffic Simulation</h3>
+                <p>Using OS concepts to simulate Traffic behavior at Intersection</p>
+                <a target="_blank" href="https://github.com/ahmedhanbal/TrafficSimulationOS">Github Link</a>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Ahmed Ali Zahid</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

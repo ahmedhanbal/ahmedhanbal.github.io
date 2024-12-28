@@ -1,3 +1,148 @@
-body{
-    background-color: teal;
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --header-bg-color: #1f2735;
+    --header-text-color: #ffcc00;
+    --link-color: white;
+    --link-hover-color: #e6b800;
+    --link-active-color: #ff9900;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1f2735;
+    --text-color: #f0f0f0;
+    --header-bg-color: #222;
+    --header-text-color: #ffcc00;
+    --link-color: #ffcc00;
+    --link-hover-color: #ff9900;
+    --link-active-color: #ff5500;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 40px;
+}
+
+.navbar-links a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--link-hover-color);
+}
+
+.navbar-links a.active {
+    color: var(--link-active-color);
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--header-text-color);
+    margin-bottom: 10px;
+}
+
+.animated-text h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.content {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.skill {
+    background-color: var(--header-text-color);
+    color: var(--header-bg-color);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.skill:hover {
+    background-color: var(--link-hover-color);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--header-bg-color);
+    color: var(--link-color);
+}
+
+.hidden-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
