@@ -26,6 +26,7 @@ body {
     padding: 0;
 }
 
+/* Base styles */
 header {
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
@@ -46,24 +47,73 @@ header {
 
 .navbar-links {
     display: flex;
-    gap: 40px;
+    align-items: center;
+    gap: 20px;
 }
 
-.navbar-links a {
+.navbar-links a,
+.navbar-links .theme-status {
     color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.navbar-links a:hover {
+.navbar-links a:hover,
+.navbar-links .theme-status:hover {
     color: var(--link-hover-color);
 }
 
+/* Toggle button styles */
+.navbar-toggle {
+    display: none;
+    background: var(--header-text-color);
+    color: var(--header-bg-color);
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: var(--header-bg-color);
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        gap: 10px;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links a,
+    .navbar-links .theme-status {
+        text-align: left;
+    }
+
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 10px;
+    }
+}
+
+/* Active state */
 .navbar-links a.active {
     color: var(--link-active-color);
     text-decoration: underline;
 }
+
 
 main {
     padding: 40px;
@@ -142,14 +192,4 @@ footer {
 .hidden-section.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }

@@ -29,6 +29,19 @@ function showWord() {
 
 showWord();
 
+const navbarToggle = document.getElementById('navbarToggle');
+const navbarLinks = document.querySelector('.navbar-links');
+
+navbarToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
+
+document.addEventListener('click', (event) => {
+    if (!navbarLinks.contains(event.target) && event.target !== navbarToggle) {
+        navbarLinks.classList.remove('active');
+    }
+});
+
 const themeStatus = document.getElementById('themeStatus');
 const rootElement = document.documentElement;
 
