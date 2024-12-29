@@ -1,5 +1,6 @@
 const sections = document.querySelectorAll('.hidden-section');
 
+// Observer for hidden sections
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -12,23 +13,7 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-const animatedText = document.querySelector('.animated-text h2');
-const text = animatedText.textContent;
-animatedText.textContent = '';
-
-let index = 0;
-const words = text.split(' ');
-
-function showWord() {
-    if (index < words.length) {
-        animatedText.textContent += words[index] + ' ';
-        index++;
-        setTimeout(showWord, 200);
-    }
-}
-
-showWord();
-
+// Navbar dropdown toggle
 const navbarToggle = document.getElementById('navbarToggle');
 const navbarLinks = document.querySelector('.navbar-links');
 
@@ -42,6 +27,7 @@ document.addEventListener('click', (event) => {
     }
 });
 
+// Theme toggle
 const themeStatus = document.getElementById('themeStatus');
 const rootElement = document.documentElement;
 
@@ -64,3 +50,42 @@ themeStatus.addEventListener('click', () => {
 });
 
 setInitialTheme();
+
+const rotatingLines = document.querySelectorAll('.animated-text h2:nth-child(n+1)'); 
+let currentIndex = 0;
+
+function displayLineWordByWord(line, callback) {
+    const words = line.dataset.text.split(' ');
+    line.textContent = ''; 
+    let wordIndex = 0;
+
+    function showNextWord() {
+        if (wordIndex < words.length) {
+            line.textContent += words[wordIndex] + ' ';
+            wordIndex++;
+            setTimeout(showNextWord, 200); 
+        } else if (callback) {
+            callback();
+        }
+    }
+
+    showNextWord();
+}
+
+function rotateLines() {
+    rotatingLines.forEach((line) => {
+        line.style.opacity = '0';
+    });
+
+    // Get the current line
+    const currentLine = rotatingLines[currentIndex];
+    currentLine.style.opacity = '1'; // Make it visible
+
+    displayLineWordByWord(currentLine, () => {
+        currentIndex = (currentIndex + 1) % rotatingLines.length;
+        setTimeout(rotateLines, 3000); 
+    });
+}
+
+rotateLines();
+

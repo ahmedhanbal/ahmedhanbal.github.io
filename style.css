@@ -137,6 +137,13 @@ main {
     margin-bottom: 10px;
 }
 
+.section-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--header-text-color);
+    margin-bottom: 10px;
+}
+
 .projname {
     font-size: 22px;
     font-weight: bold;
@@ -144,13 +151,26 @@ main {
     margin-bottom: 10px;
 }
 
+.animated-text {
+    position: relative;
+    height: 40px; /* Adjust height to fit static and rotating lines */
+    text-align: center;
+    overflow: hidden; /* Prevent overflow from hidden lines */
+}
+
 .animated-text h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin: 0;
 }
 
 .content {
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -159,7 +179,7 @@ main {
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .skill {
@@ -173,6 +193,19 @@ main {
 }
 
 .skill:hover {
+    background-color: var(--link-hover-color);
+}
+
+.projlink {
+    background-color: var(--header-text-color);
+    color: var(--header-bg-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projlink:hover {
     background-color: var(--link-hover-color);
 }
 
