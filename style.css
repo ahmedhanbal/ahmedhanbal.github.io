@@ -503,6 +503,8 @@ footer {
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 [data-theme="dark"] .project-card-content {
@@ -516,6 +518,8 @@ footer {
     letter-spacing: 0.5px;
     color: var(--header-text-color);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
 }
 
 .project-card p {
@@ -528,6 +532,7 @@ footer {
     flex-grow: 1;
     max-width: 90%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .project-card .projlink {
