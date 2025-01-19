@@ -1,10 +1,17 @@
 const sections = document.querySelectorAll('.hidden-section');
+const intro = document.querySelector('.intro');
 
 // Observer for hidden sections
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // Reset animations when section comes into view
+            if (entry.target === intro) {
+                const lines = document.querySelectorAll('.animated-text h2');
+                lines.forEach(line => line.classList.remove('animate'));
+                setTimeout(animateAboutText, 100); // Slight delay to ensure reset takes effect
+            }
         }
     });
 }, { threshold: 0.1 });
@@ -12,6 +19,9 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+// Observe the intro section as well
+observer.observe(intro);
 
 // Navbar dropdown toggle
 const navbarToggle = document.getElementById('navbarToggle');
@@ -51,41 +61,16 @@ themeStatus.addEventListener('click', () => {
 
 setInitialTheme();
 
-const rotatingLines = document.querySelectorAll('.animated-text h2:nth-child(n+1)'); 
-let currentIndex = 0;
-
-function displayLineWordByWord(line, callback) {
-    const words = line.dataset.text.split(' ');
-    line.textContent = ''; 
-    let wordIndex = 0;
-
-    function showNextWord() {
-        if (wordIndex < words.length) {
-            line.textContent += words[wordIndex] + ' ';
-            wordIndex++;
-            setTimeout(showNextWord, 200); 
-        } else if (callback) {
-            callback();
-        }
-    }
-
-    showNextWord();
-}
-
-function rotateLines() {
-    rotatingLines.forEach((line) => {
-        line.style.opacity = '0';
-    });
-
-    // Get the current line
-    const currentLine = rotatingLines[currentIndex];
-    currentLine.style.opacity = '1'; // Make it visible
-
-    displayLineWordByWord(currentLine, () => {
-        currentIndex = (currentIndex + 1) % rotatingLines.length;
-        setTimeout(rotateLines, 3000); 
+// Update the animation function
+function animateAboutText() {
+    const lines = document.querySelectorAll('.animated-text h2');
+    let delay = 500; // Start after the section animation
+    
+    lines.forEach((line) => {
+        setTimeout(() => {
+            line.classList.add('animate');
+        }, delay);
+        delay += 500; // Each line appears 500ms after the previous one
     });
 }
-
-rotateLines();
 
