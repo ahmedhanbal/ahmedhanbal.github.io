@@ -74,3 +74,26 @@ function animateAboutText() {
     });
 }
 
+// Scroll to top functionality
+const scrollToTop = document.querySelector('.scroll-to-top');
+
+// Show button when page is scrolled up 100px
+const toggleScrollButton = () => {
+    if (window.scrollY > 100) {
+        scrollToTop.classList.add('visible');
+    } else {
+        scrollToTop.classList.remove('visible');
+    }
+};
+
+// Smooth scroll to top when button is clicked
+scrollToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Listen for scroll events
+window.addEventListener('scroll', toggleScrollButton);
+
