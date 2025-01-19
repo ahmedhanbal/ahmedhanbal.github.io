@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Enhanced Portfolio Website"> 
-    <title>Ahmed Ali Zahid | My Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
-        <span class="navbar-brand">Hanbal.</span>
-        <button id="navbarToggle" class="navbar-toggle">☰</button>
-        <nav class="navbar-links">
-            <a href="#">Home</a>
-            <a href="#intro">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <span id="themeStatus" class="theme-status"></span>
-        </nav>
+        <div class="header-content">
+            <a href="#" class="navbar-brand">Hanbal.</a>
+            <button id="navbarToggle" class="navbar-toggle">☰</button>
+            <nav class="navbar-links">
+                <a href="#">Home</a>
+                <a href="#intro">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <span id="themeStatus" class="theme-status"></span>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="intro" id="intro">
@@ -30,8 +32,9 @@
                 <div class="about-content">
                     <h2>About Me</h2>
                     <div class="animated-text">
-                        <h2>I am proficient in C/C++ and Python.</h2>
-                        <h2>I love system design and backend stuff.</h2>
+                        <h2>I am proficient in C/C++ and Python</h2>
+                        <h2>Currently focused on backend and network programming.</h2>
+                        <h2>I love tackling complex algorithmic challenges and optimizing performance.</h2>
                     </div>
                 </div>
             </div>
@@ -151,21 +154,50 @@
             </section>
             <section id="projects" class="hidden-section">
                 <h2 class="section-name">Projects</h2>
-                <h3 class="projname">Bittorrent Client</h3>
-                <p>A CLI bittorrent client implemented in c++</p>
-                <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/bittorrent-client-cpp">Github</a>
-                <h3 class="projname">Tetris</h3>
-                <p>Class Tetris Game implemented in C++ and SFML</p>
-                <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
-                <h3 class="projname">Spaceshooter</h3>
-                <p>Retro SpaceInvader game implemented in C++ OOP and SFML</p>
-                <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/SpaceshooterOOP">Github</a>
-                <h3 class="projname">Labrynth Explorer</h3>
-                <p>Using DSA concepts to make a Maze Escape Game</p>
-                <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
-                <h3 class="projname">Traffic Simulation</h3>
-                <p>Using OS concepts to simulate Traffic behavior at Intersection</p>
-                <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TrafficSimulationOS">Github</a>
+                <div class="projects-container">
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Bittorrent Client</h3>
+                            <p>A CLI bittorrent client implemented in c++</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/bittorrent-client-cpp">Github</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Tetris</h3>
+                            <p>Class Tetris Game implemented in C++ and SFML</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Spaceshooter</h3>
+                            <p>Retro SpaceInvader game implemented in C++ OOP and SFML</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/SpaceshooterOOP">Github</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Labrynth Explorer</h3>
+                            <p>Using DSA concepts to make a Maze Escape Game</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Traffic Simulation</h3>
+                            <p>Using OS concepts to simulate Traffic behavior at Intersection</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TrafficSimulationOS">Github</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 class="projname">Bitmap Encoder</h3>
+                            <p>A simple bitmap image encoder to study file structure of a Bitmap Image file</p>
+                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/BitmapEncoder">Github</a>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
