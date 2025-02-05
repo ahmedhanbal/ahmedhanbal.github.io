@@ -1,219 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enhanced Portfolio Website"> 
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <a href="#" class="navbar-brand">Hanbal.</a>
-            <button id="navbarToggle" class="navbar-toggle">☰</button>
-            <nav class="navbar-links">
-                <a href="#">Home</a>
-                <a href="#intro">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <span id="themeStatus" class="theme-status"></span>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="intro" id="intro">
-            <div class="intro-content">
-                <h1 class="name">Ahmed Ali Zahid</h1>
-                <div class="text">
-                    <h2>CS Undergrad at NUCES, Islamabad.</h2>
-                </div>
-                <div class="about-content">
-                    <h2>About Me</h2>
-                    <div class="animated-text">
-                        <h2>I am proficient in C/C++ and Python</h2>
-                        <h2>Currently focused on backend and network programming.</h2>
-                        <h2>I love tackling complex challenges and optimizing performance.</h2>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Enhanced Portfolio Website" />
+        <title>My Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <a href="#" class="navbar-brand">Hanbal.</a>
+                <button id="navbarToggle" class="navbar-toggle">☰</button>
+                <nav class="navbar-links">
+                    <a href="#">Home</a>
+                    <a href="#intro">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                    <span id="themeStatus" class="theme-status"></span>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="intro" id="intro">
+                <div class="intro-content">
+                    <h1 class="name">Ahmed Ali Zahid</h1>
+                    <div class="text">
+                        <h2>CS Undergrad at NUCES, Islamabad.</h2>
                     </div>
+                    <div class="about-content">
+                        <h2>About Me</h2>
+                        <div class="animated-text">
+                            <h2>I am proficient in C/C++ and Python</h2>
+                            <h2>
+                                Currently focused on backend and network
+                                programming.
+                            </h2>
+                            <h2>
+                                I love tackling complex challenges and
+                                optimizing performance.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img
+                        src="mypic.png"
+                        alt="Ahmed Ali Zahid"
+                        class="profile-image"
+                    />
                 </div>
             </div>
-            <div class="intro-image">
-                <img src="mypic.png" alt="Ahmed Ali Zahid" class="profile-image">
+            <div class="content">
+                <section id="skills" class="hidden-section">
+                    <h2 class="section-name">Skills</h2>
+
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Programming Languages</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="fa-solid fa-code"></i>
+                                    <span class="skill-caption">C/C++</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fab fa-python"></i>
+                                    <span class="skill-caption">Python</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fab fa-java"></i>
+                                    <span class="skill-caption">Java</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Web Development</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="fab fa-html5"></i>
+                                    <span class="skill-caption">HTML</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fab fa-css3-alt"></i>
+                                    <span class="skill-caption">CSS</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fab fa-js"></i>
+                                    <span class="skill-caption"
+                                        >JavaScript</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Database</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="fas fa-database"></i>
+                                    <span class="skill-caption">SQL</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fas fa-leaf"></i>
+                                    <span class="skill-caption">MongoDB</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fas fa-table"></i>
+                                    <span class="skill-caption">Access</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Shell Scripting</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="fas fa-terminal"></i>
+                                    <span class="skill-caption">Bash</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fab fa-windows"></i>
+                                    <span class="skill-caption"
+                                        >PowerShell</span
+                                    >
+                                </div>
+                                <div class="skill">
+                                    <i class="fas fa-terminal"></i>
+                                    <span class="skill-caption">CMD</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Build and Control</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="fab fa-git-alt"></i>
+                                    <span class="skill-caption">Git</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="fas fa-cogs"></i>
+                                    <span class="skill-caption">CMake</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Office</h3>
+                            <div class="skills">
+                                <div class="skill">
+                                    <i class="far fa-file-word"></i>
+                                    <span class="skill-caption">Word</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="far fa-file-excel"></i>
+                                    <span class="skill-caption">Excel</span>
+                                </div>
+                                <div class="skill">
+                                    <i class="far fa-file-powerpoint"></i>
+                                    <span class="skill-caption"
+                                        >PowerPoint</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="projects" class="hidden-section">
+                    <h2 class="section-name">Projects</h2>
+                    <div class="projects-container">
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Bittorrent Client</h3>
+                                <p>
+                                    A CLI bittorrent client implemented in c++
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/bittorrent-client-cpp"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Tetris</h3>
+                                <p>
+                                    Class Tetris Game implemented in C++ and
+                                    SFML
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/TetrisPF"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Spaceshooter</h3>
+                                <p>
+                                    Retro SpaceInvader game implemented in C++
+                                    OOP and SFML
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/SpaceshooterOOP"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Labrynth Explorer</h3>
+                                <p>
+                                    Using DSA concepts to make a Maze Escape
+                                    Game
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/TetrisPF"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Traffic Simulation</h3>
+                                <p>
+                                    Using OS concepts to simulate Traffic
+                                    behavior at Intersection
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/TrafficSimulationOS"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <h3 class="projname">Bitmap Encoder</h3>
+                                <p>
+                                    A simple bitmap image encoder to study file
+                                    structure of a Bitmap Image file
+                                </p>
+                                <a
+                                    target="_blank"
+                                    class="projlink"
+                                    href="https://github.com/ahmedhanbal/BitmapEncoder"
+                                    >Github</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="contact" class="hidden-section">
+                    <h2 class="section-name">Contact Me</h2>
+                    <div class="contact-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </section>
             </div>
-        </div>
-        <div class="content">
-            <section id="skills" class="hidden-section">
-                <h2 class="section-name">Skills</h2>
-                
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="fa-solid fa-code"></i>
-                                <span class="skill-caption">C/C++</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fab fa-python"></i>
-                                <span class="skill-caption">Python</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fab fa-java"></i>
-                                <span class="skill-caption">Java</span>
-                            </div>
-                        </div>
-                    </div>
+        </main>
 
-                    <div class="skill-category">
-                        <h3>Web Development</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="fab fa-html5"></i>
-                                <span class="skill-caption">HTML</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fab fa-css3-alt"></i>
-                                <span class="skill-caption">CSS</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fab fa-js"></i>
-                                <span class="skill-caption">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Database</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="fas fa-database"></i>
-                                <span class="skill-caption">SQL</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fas fa-leaf"></i>
-                                <span class="skill-caption">MongoDB</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fas fa-table"></i>
-                                <span class="skill-caption">Access</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Shell Scripting</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="fas fa-terminal"></i>
-                                <span class="skill-caption">Bash</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fab fa-windows"></i>
-                                <span class="skill-caption">PowerShell</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fas fa-terminal"></i>
-                                <span class="skill-caption">CMD</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Build and Control</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="fab fa-git-alt"></i>
-                                <span class="skill-caption">Git</span>
-                            </div>
-                            <div class="skill">
-                                <i class="fas fa-cogs"></i>
-                                <span class="skill-caption">CMake</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Office</h3>
-                        <div class="skills">
-                            <div class="skill">
-                                <i class="far fa-file-word"></i>
-                                <span class="skill-caption">Word</span>
-                            </div>
-                            <div class="skill">
-                                <i class="far fa-file-excel"></i>
-                                <span class="skill-caption">Excel</span>
-                            </div>
-                            <div class="skill">
-                                <i class="far fa-file-powerpoint"></i>
-                                <span class="skill-caption">PowerPoint</span>
-                            </div>
-                        </div>
-                    </div>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/ahmedhanbal" target="_blank"
+                        ><i class="fab fa-github"></i
+                    ></a>
+                    <a
+                        href="https://linkedin.com/in/ahmedhanbal"
+                        target="_blank"
+                        ><i class="fab fa-linkedin"></i
+                    ></a>
+                    <a href="mailto:ahmedhanbal@gmail.com"
+                        ><i class="fas fa-envelope"></i
+                    ></a>
                 </div>
-            </section>
-            <section id="projects" class="hidden-section">
-                <h2 class="section-name">Projects</h2>
-                <div class="projects-container">
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Bittorrent Client</h3>
-                            <p>A CLI bittorrent client implemented in c++</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/bittorrent-client-cpp">Github</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Tetris</h3>
-                            <p>Class Tetris Game implemented in C++ and SFML</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Spaceshooter</h3>
-                            <p>Retro SpaceInvader game implemented in C++ OOP and SFML</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/SpaceshooterOOP">Github</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Labrynth Explorer</h3>
-                            <p>Using DSA concepts to make a Maze Escape Game</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TetrisPF">Github</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Traffic Simulation</h3>
-                            <p>Using OS concepts to simulate Traffic behavior at Intersection</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/TrafficSimulationOS">Github</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-card-content">
-                            <h3 class="projname">Bitmap Encoder</h3>
-                            <p>A simple bitmap image encoder to study file structure of a Bitmap Image file</p>
-                            <a target="_blank" class="projlink" href="https://github.com/ahmedhanbal/BitmapEncoder">Github</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://github.com/ahmedhanbal" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ahmedhanbal" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:ahmedhanbal@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
+        </footer>
+        <div class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
         </div>
-    </footer>
-    <div class="scroll-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
