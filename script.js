@@ -1,120 +1,190 @@
-const sections = document.querySelectorAll(".hidden-section");
-const intro = document.querySelector(".intro");
-
-// Observer for hidden sections
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                // Reset animations when section comes into view
-                if (entry.target === intro) {
-                    const lines =
-                        document.querySelectorAll(".animated-text h2");
-                    lines.forEach((line) => line.classList.remove("animate"));
-                    setTimeout(animateAboutText, 100); // Slight delay to ensure reset takes effect
-                }
-            }
-        });
-    },
-    { threshold: 0.1 },
-);
-
-sections.forEach((section) => {
-    observer.observe(section);
-});
-
-// Observe the intro section as well
-observer.observe(intro);
-
-// Navbar dropdown toggle
-const navbarToggle = document.getElementById("navbarToggle");
-const navbarLinks = document.querySelector(".navbar-links");
-
-navbarToggle.addEventListener("click", () => {
-    navbarLinks.classList.toggle("active");
-});
-
-document.addEventListener("click", (event) => {
-    if (!navbarLinks.contains(event.target) && event.target !== navbarToggle) {
-        navbarLinks.classList.remove("active");
-    }
-});
-
-// Theme toggle
-const themeStatus = document.getElementById("themeStatus");
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
 const rootElement = document.documentElement;
 
-function setInitialTheme() {
-    const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-    ).matches;
-    rootElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-    updateThemeStatus();
+function setTheme(theme) {
+    rootElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
 }
 
-function updateThemeStatus() {
-    const currentTheme = rootElement.getAttribute("data-theme");
-    themeStatus.textContent =
-        currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1);
-}
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+setTheme(savedTheme);
 
-themeStatus.addEventListener("click", () => {
-    const currentTheme = rootElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-    rootElement.setAttribute("data-theme", newTheme);
-    updateThemeStatus();
+themeToggle.addEventListener('click', () => {
+    const currentTheme = rootElement.getAttribute('data-theme');
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 });
 
-setInitialTheme();
+// Mobile Navigation
+const navbarToggle = document.getElementById('navbarToggle');
+const navbarLinks = document.querySelector('.navbar-links');
 
-// Update the animation function
-function animateAboutText() {
-    const lines = document.querySelectorAll(".animated-text h2");
-    let delay = 500; // Start after the section animation
+navbarToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
 
-    lines.forEach((line) => {
-        setTimeout(() => {
-            line.classList.add("animate");
-        }, delay);
-        delay += 500; // Each line appears 500ms after the previous one
+// Close mobile menu when clicking outside
+document.addEventListener('click', (event) => {
+    if (!navbarLinks.contains(event.target) && event.target !== navbarToggle) {
+        navbarLinks.classList.remove('active');
+    }
+});
+
+// Enhanced smooth scrolling with improved section transitions
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 80; // Height of your fixed header
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollBy({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Close mobile menu after clicking
+            navbarLinks.classList.remove('active');
+        }
+    });
+});
+
+// Improved section scrolling with better transitions
+const sections = document.querySelectorAll('.hero, #skills, #projects');
+let currentSectionIndex = 0;
+let isScrolling = false;
+let lastScrollTime = Date.now();
+const scrollCooldown = 100; // Increased cooldown for smoother transitions
+
+// Track current section
+function updateCurrentSection() {
+    const scrollPosition = window.scrollY;
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSectionIndex = index;
+        }
     });
 }
 
-// Scroll to top functionality
-const scrollToTop = document.querySelector(".scroll-to-top");
+// Smooth scroll to section
+function scrollToSection(index) {
+    if (index >= 0 && index < sections.length) {
+        const headerOffset = 80;
+        const targetPosition = sections[index].offsetTop - headerOffset;
 
-// Show button when page is scrolled up 100px
-const toggleScrollButton = () => {
-    if (window.scrollY > 100) {
-        scrollToTop.classList.add("visible");
-    } else {
-        scrollToTop.classList.remove("visible");
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+
+        currentSectionIndex = index;
+
+        // Reset scroll flag after animation
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
     }
-};
+}
 
-// Smooth scroll to top when button is clicked
-scrollToTop.addEventListener("click", () => {
+// Handle scroll events with improved logic
+window.addEventListener('wheel', (e) => {
+    const now = Date.now();
+    if (now - lastScrollTime < scrollCooldown) return;
+    lastScrollTime = now;
+
+    const currentSection = sections[currentSectionIndex];
+    const rect = currentSection.getBoundingClientRect();
+    const isAtTop = rect.top >= -10;
+    const isAtBottom = rect.bottom <= window.innerHeight + 10;
+
+    // Allow normal scrolling within sections unless at boundaries
+    if (!isScrolling) {
+        if (e.deltaY > 0 && isAtBottom && currentSectionIndex < sections.length - 1) {
+            // Scrolling down and at bottom of section
+            isScrolling = true;
+            scrollToSection(currentSectionIndex + 1);
+        } else if (e.deltaY < 0 && isAtTop && currentSectionIndex > 0) {
+            // Scrolling up and at top of section
+            isScrolling = true;
+            scrollToSection(currentSectionIndex - 1);
+        }
+    }
+});
+
+// Update current section on scroll
+window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+        updateCurrentSection();
+    }
+});
+
+// Initialize current section
+updateCurrentSection();
+
+// Scroll to Top Button with smooth animation
+const scrollTopButton = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+    scrollTopButton.classList.toggle('visible', window.scrollY > 300);
+});
+
+scrollTopButton.addEventListener('click', () => {
+    isScrolling = true;
     window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: 'smooth'
+    });
+    setTimeout(() => {
+        isScrolling = false;
+    }, 1000);
+});
+
+// Email Copy Functionality
+const emailCopy = document.getElementById('emailCopy');
+emailCopy.addEventListener('click', () => {
+    const email = 'ahmed.alizahid14@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const tooltip = document.createElement('div');
+        tooltip.textContent = 'Email copied!';
+        tooltip.style.cssText = `
+            position: fixed;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        `;
+        document.body.appendChild(tooltip);
+
+        setTimeout(() => {
+            tooltip.remove();
+        }, 2000);
     });
 });
 
-// Listen for scroll events
-window.addEventListener("scroll", toggleScrollButton);
+// Intersection Observer for Animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1
+});
 
-// Contact form handling
-const contactForm = document.getElementById("contactForm");
-contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-    
-    // Here you would typically send this data to your backend
-    // For now, we'll just show a success message
-    alert("Thanks for your message! I'll get back to you soon.");
-    contactForm.reset();
+// Observe all sections and cards
+document.querySelectorAll('section, .project-card, .skill-category').forEach(element => {
+    observer.observe(element);
 });
