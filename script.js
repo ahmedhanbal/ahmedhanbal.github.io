@@ -17,19 +17,39 @@ themeToggle.addEventListener('click', () => {
     setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 });
 
-// Mobile Navigation
+// Enhanced Mobile Navigation
 const navbarToggle = document.getElementById('navbarToggle');
 const navbarLinks = document.querySelector('.navbar-links');
 
-navbarToggle.addEventListener('click', () => {
+navbarToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navbarLinks.classList.toggle('active');
+    // Update toggle icon
+    const icon = navbarToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (event) => {
-    if (!navbarLinks.contains(event.target) && event.target !== navbarToggle) {
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navbarLinks.contains(e.target) && !navbarToggle.contains(e.target)) {
         navbarLinks.classList.remove('active');
+        // Reset toggle icon
+        const icon = navbarToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
     }
+});
+
+// Close menu when clicking a link
+navbarLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbarLinks.classList.remove('active');
+        // Reset toggle icon
+        const icon = navbarToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
 });
 
 // Enhanced smooth scrolling with improved section transitions
